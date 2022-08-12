@@ -49,7 +49,7 @@ router.get('/candidates/:id', (req, res) => {
 });
 
 // delete candidate
-router.delete('/candidates/:id', (req, res) => {
+router.delete('/candidate/:id', (req, res) => {
     const sql = `DELETE FROM candidates WHERE id = ?`;
     const params = [req.params.id];
 
@@ -71,7 +71,7 @@ router.delete('/candidates/:id', (req, res) => {
 });
 
 // Create a candidate
-router.post('/candidates', ({ body }, res) => {
+router.post('/candidate', ({ body }, res) => {
     const errors = inputCheck(body, 'first_name', 'last_name', 'industry_connected');
     if (errors) {
         res.status(400).json({ error: errors });
